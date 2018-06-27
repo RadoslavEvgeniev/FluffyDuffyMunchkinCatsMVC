@@ -1,6 +1,6 @@
 package repositories.util;
 
-public interface RepostioryActionInvoker {
+public interface RepositoryActionInvoker {
 
     void invoke(RepositoryActionResult repositoryActionResult);
 }
