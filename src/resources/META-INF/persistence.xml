@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-    <persistence-unit name="fdmc">
+    <persistence-unit name="FluffyDuffyMunchkinCats">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
             <property name = "hibernate.connection.url" value="jdbc:mysql://localhost:3306/fdmc_db?useSSL=false&amp;createDatabaseIfNotExist=true&amp;serverTimezone=UTC"/>
             <property name = "hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
