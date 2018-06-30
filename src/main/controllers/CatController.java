@@ -26,6 +26,10 @@ public class CatController extends BaseController {
 
     @PostMapping(route = "/cats/create")
     public String createResult(HttpSoletRequest request, Model model, CatCreateBindingModel bindingModel) {
+        if (bindingModel.getCatName() == null || bindingModel.getCatBreed() == null || bindingModel.getCatColor() == null) {
+            return super.view(request, model, "cats/create");
+        }
+
         this.catService.saveCat(bindingModel);
 
         return super.redirect(request, model, "/cats/profile/" + bindingModel.getCatName());

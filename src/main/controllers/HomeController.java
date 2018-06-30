@@ -10,18 +10,19 @@ public class HomeController extends BaseController {
 
     @GetMapping(route = "/")
     public String index(HttpSoletRequest request, Model model) {
-        if (request.getSession() == null) {
-            return super.view(request, model, "index");
+        if (super.isLoggedIn(request)) {
+            return super.redirect(request, model, "/home");
         }
 
-        return super.redirect(request, model, "/home");
+        return super.view(request, model, "index");
     }
 
     @GetMapping(route = "/home")
     public String home(HttpSoletRequest request, Model model) {
-        if (request.getSession() == null) {
-            return redirect(request, model, "/");
+        if (!super.isLoggedIn(request)) {
+            return super.redirect(request, model, "/");
         }
+
         return super.view(request, model, "home");
     }
 }
